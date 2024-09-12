@@ -204,8 +204,8 @@ clearButton.addEventListener ("click", ()=> {
 // functions
 
 function operate (a,b) {
-    a = parseInt(equationOneNumbers.join(""));
-    b = parseInt(equationTwoNumbers.join(""));
+    a = parseFloat(equationOneNumbers.join(""));
+    b = parseFloat(equationTwoNumbers.join(""));
     if (plusEquation===true ) {
         displayedOnScreen =  a + b;
         if (displayedOnScreen>9999999) {
