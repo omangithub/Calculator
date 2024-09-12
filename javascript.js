@@ -223,6 +223,11 @@ function operate (a,b) {
         endOfEquation=true;  
         equationOne=true;     
     } else if (divideEquation===true) {
+        if (a===0 || b===0) {
+        displayScreen.textContent="ERROR"; 
+        endOfEquation=true; 
+        equationOne=true;       
+        }
         displayedOnScreen =  Math.round((a / b)*100000)/100000;
         displayScreen.textContent=displayedOnScreen;
         endOfEquation=true; 
