@@ -1,0 +1,96 @@
+#titleCalc {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    padding: 10px;
+}
+
+#calcBody {
+    margin:auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 5%;
+    border: black solid;
+    background-image: linear-gradient( rgb(226, 226, 226), rgb(182, 181, 181));
+    width: 400px;
+    height: 600px;
+    flex-direction: column;
+}
+
+#display {
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border: white solid;
+    background-color: black;
+    width: 300px;
+    height: 100px;
+    color: red;
+}
+
+#innerDisplay {
+    margin: 10px;
+    justify-content: right;
+    align-items: center;
+    display: flex;
+    background-color: black;
+    width: 280px;
+    height: 80px;
+    color: red;
+    text-align: right;
+    text-wrap: nowrap;
+    font-size: 80px;
+}
+
+#equationButtonBox {
+    align-items: center;
+    display: flex;
+    width: 350px;
+    height: 100px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#numberButtonBox {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 350px;
+    height: 300px;
+    flex-direction: row;
+    flex-wrap: wrap; 
+}
+
+#clear {
+    background-image: linear-gradient(red, brown);
+    border-color: brown;
+    font-size: 20px;
+    color: black;
+}
+
+.topCalcButton {
+    margin:2px;
+    width: 50px;
+    height:50px;
+    border-radius: 50%;
+    background-image: linear-gradient(rgb(194, 194, 194), darkgrey);
+    border-color: black; 
+    font-size: 20px;
+    color: black;
+}
+
+.bottomCalcButton {
+    margin:2px;
+  width: 70px;
+  height:70px;
+  border-radius: 50%;
+  background-image: linear-gradient(rgb(194, 194, 194), darkgrey);
+  border-color: black;
+  font-size: 40px;
+  color: black;
+}
+
