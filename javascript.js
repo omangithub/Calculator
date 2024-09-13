@@ -142,6 +142,15 @@ oneBackButton.addEventListener ("click", ()=> {
 
 
 plusButton.addEventListener ("click", ()=> {
+    if (minusEquation===true && equationOne===false && equationTwoNumbers.length===0|| divideEquation===true && equationOne===false && equationTwoNumbers.length===0|| timesEquation===true && equationOne===false && equationTwoNumbers.length===0) {
+        displayScreen.textContent="+";
+        equationOne=false;
+        displayedOnScreen = [];
+        plusEquation=true;
+        timesEquation=false;
+        divideEquation=false;
+        minusEquation=false;
+    }
     if (endOfEquation===true && displayedOnScreen!=="ERROR") {
         endOfEquation=false;
         displayScreen.textContent="+";
@@ -168,6 +177,15 @@ plusButton.addEventListener ("click", ()=> {
 
 
 minusButton.addEventListener ("click", ()=> {
+    if (plusEquation===true && equationOne===false && equationTwoNumbers.length===0|| divideEquation===true && equationOne===false && equationTwoNumbers.length===0|| timesEquation===true && equationOne===false && equationTwoNumbers.length===0) {
+        displayScreen.textContent="-";
+        equationOne=false;
+        displayedOnScreen = [];
+        plusEquation=false;
+        timesEquation=false;
+        divideEquation=false;
+        minusEquation=true;
+    }
     if (endOfEquation===true && displayedOnScreen!=="ERROR") {
         endOfEquation=false;
         displayScreen.textContent="-";
@@ -193,6 +211,15 @@ minusButton.addEventListener ("click", ()=> {
 });
 
 divideButton.addEventListener ("click", ()=> {
+    if (minusEquation===true && equationOne===false && equationTwoNumbers.length===0|| plusEquation===true && equationOne===false && equationTwoNumbers.length===0|| timesEquation===true && equationOne===false && equationTwoNumbers.length===0) {
+        displayScreen.textContent="/";
+        equationOne=false;
+        displayedOnScreen = [];
+        plusEquation=false;
+        timesEquation=false;
+        divideEquation=true;
+        minusEquation=false;
+    }
     if (endOfEquation===true && displayedOnScreen!=="ERROR") {
         endOfEquation=false;
         displayScreen.textContent="/";
@@ -218,6 +245,15 @@ divideButton.addEventListener ("click", ()=> {
 });
 
 timesButton.addEventListener ("click", ()=> {
+    if (minusEquation===true && equationOne===false && equationTwoNumbers.length===0|| divideEquation===true && equationOne===false && equationTwoNumbers.length===0|| plusEquation===true && equationOne===false && equationTwoNumbers.length===0) {
+        displayScreen.textContent="*";
+        equationOne=false;
+        displayedOnScreen = [];
+        plusEquation=false;
+        timesEquation=true;
+        divideEquation=false;
+        minusEquation=false;
+    }
     if (endOfEquation===true && displayedOnScreen!=="ERROR") {
         endOfEquation=false;
         displayScreen.textContent="*";
