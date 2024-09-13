@@ -160,6 +160,9 @@ plusButton.addEventListener ("click", ()=> {
   equationOne=false;
   displayedOnScreen = [];
   plusEquation=true;
+  timesEquation=false;
+  divideEquation=false;
+  minusEquation=false;
     }
 });
 
@@ -174,6 +177,9 @@ minusButton.addEventListener ("click", ()=> {
         equationOneNumbers.push(displayedOnScreen);
         displayedOnScreen = [];
         minusEquation=true;
+        timesEquation=false;
+        plusEquation=false;
+        divideEquation=false;
     }
     if (equationOne===true) {
   displayScreen.textContent="-";
@@ -196,6 +202,9 @@ divideButton.addEventListener ("click", ()=> {
         equationOneNumbers.push(displayedOnScreen);
         displayedOnScreen = [];
         divideEquation=true;
+        timesEquation=false;
+        plusEquation=false;
+        minusEquation=false;
     }
     if (equationOne===true) {
   displayScreen.textContent="/";
@@ -227,6 +236,9 @@ timesButton.addEventListener ("click", ()=> {
   equationOne=false;
   displayedOnScreen = [];
   timesEquation=true;
+  divideEquation=false;
+  plusEquation=false;
+  minusEquation=false;
     }
 });
 
