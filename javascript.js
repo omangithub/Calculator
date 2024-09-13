@@ -22,6 +22,7 @@ const sixButton = document.getElementById("six");
 const sevenButton = document.getElementById("seven");
 const eightButton = document.getElementById("eight");
 const nineButton = document.getElementById("nine");
+const decimalPointButton = document.getElementById("decimalPoint")
 
 let clickedNumberButton = undefined;
 
@@ -92,6 +93,11 @@ nineButton.addEventListener ("click", ()=>{
   clickedNumberButton=9
   clickedNumberButtonFunc();
 });
+
+decimalPointButton.addEventListener ("click", ()=>{
+    clickedNumberButton=10
+    clickedNumberButtonFunc();
+  });
 
 // event listeners for equation buttons
 
@@ -347,6 +353,25 @@ function clickedNumberButtonFunc () {
             equationTwoNumbers.push(9);  
         }
             screenItems();
+    } else if (clickedNumberButton===10 && displayedOnScreen.length<=6) {
+        endOfEquation=false;
+        if (!displayedOnScreen.includes(".") && displayedOnScreen!="") {
+          displayedOnScreen.push(".");
+          if (equationOne===true) {
+              equationOneNumbers.push(".");
+              } else {
+              equationTwoNumbers.push(".");  
+          }
+            screenItems();
+        }else{
+            displayedOnScreen.push("0.");
+            if (equationOne===true) {
+                equationOneNumbers.push("0.");
+                } else {
+                equationTwoNumbers.push("0.");  
+            }
+              screenItems();  
+        }
 }};
 
 function screenItems () {
