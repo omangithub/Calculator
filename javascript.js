@@ -42,6 +42,7 @@ let plusEquation = false;
 let minusEquation = false;
 let divideEquation = false;
 let timesEquation = false;
+let clearAfterEquals = false;
 
 // event listeners for the number buttons
 
@@ -108,6 +109,7 @@ decimalPointButton.addEventListener ("click", ()=>{
   });
 
 oneBackButton.addEventListener ("click", ()=> {
+  if (!clearAfterEquals===true) {
     if (equationOne===true) {
       if (equationOneNumbers.length<=1) {
         equationOneNumbers.pop();
@@ -138,10 +140,11 @@ oneBackButton.addEventListener ("click", ()=> {
               screenItems();
             }
         }
-    }});
+  }}});
 
 
 plusButton.addEventListener ("click", ()=> {
+    clearAfterEquals=false;
     if (minusEquation===true && equationOne===false && equationTwoNumbers.length===0|| divideEquation===true && equationOne===false && equationTwoNumbers.length===0|| timesEquation===true && equationOne===false && equationTwoNumbers.length===0) {
         displayScreen.textContent="+";
         equationOne=false;
@@ -177,6 +180,7 @@ plusButton.addEventListener ("click", ()=> {
 
 
 minusButton.addEventListener ("click", ()=> {
+    clearAfterEquals=false;
     if (plusEquation===true && equationOne===false && equationTwoNumbers.length===0|| divideEquation===true && equationOne===false && equationTwoNumbers.length===0|| timesEquation===true && equationOne===false && equationTwoNumbers.length===0) {
         displayScreen.textContent="-";
         equationOne=false;
@@ -211,6 +215,7 @@ minusButton.addEventListener ("click", ()=> {
 });
 
 divideButton.addEventListener ("click", ()=> {
+    clearAfterEquals=false;
     if (minusEquation===true && equationOne===false && equationTwoNumbers.length===0|| plusEquation===true && equationOne===false && equationTwoNumbers.length===0|| timesEquation===true && equationOne===false && equationTwoNumbers.length===0) {
         displayScreen.textContent="/";
         equationOne=false;
@@ -245,6 +250,7 @@ divideButton.addEventListener ("click", ()=> {
 });
 
 timesButton.addEventListener ("click", ()=> {
+    clearAfterEquals=false;
     if (minusEquation===true && equationOne===false && equationTwoNumbers.length===0|| divideEquation===true && equationOne===false && equationTwoNumbers.length===0|| plusEquation===true && equationOne===false && equationTwoNumbers.length===0) {
         displayScreen.textContent="*";
         equationOne=false;
@@ -294,7 +300,7 @@ clearButton.addEventListener ("click", ()=> {
     equationOneNumbers = [];
     equationTwoNumbers = [];
     displayScreen.textContent=noValue;
-  })
+})
 
 // functions
 
@@ -306,47 +312,56 @@ function operate (a,b) {
         if (displayedOnScreen>9999999) {
             displayScreen.textContent="ERROR";
             endOfEquation=true; 
-            equationOne=true;           
+            equationOne=true; 
+            clearAfterEquals=true;          
         } else {
         displayScreen.textContent=displayedOnScreen;
         endOfEquation=true;
         equationOne=true;
+        clearAfterEquals=true;
         }
     } else if (minusEquation===true) {
         displayedOnScreen =  a - b;
         displayScreen.textContent=displayedOnScreen;
         endOfEquation=true;  
         equationOne=true;     
+        clearAfterEquals=true;
     } else if (divideEquation===true) {
         displayedOnScreen =  Math.round((a / b)*100000)/100000;
         if (displayedOnScreen===Infinity || a===0 && b===0) {
             displayScreen.textContent="ERROR"
             endOfEquation=true; 
             equationOne=true;
+            clearAfterEquals=true;
         } else {
         displayScreen.textContent=displayedOnScreen;
         endOfEquation=true; 
         equationOne=true;
+        clearAfterEquals=true;
         }
     } else if (timesEquation===true) {
         if (a===0 || b===0) {
             displayScreen.textContent="0";
             endOfEquation=true;  
             equationOne=true; 
+            clearAfterEquals=true;
         }else if (displayedOnScreen>9999999) {
             displayScreen.textContent="ERROR";
             endOfEquation=true;  
-            equationOne=true;           
+            equationOne=true;   
+            clearAfterEquals=true;        
         } else {
         displayedOnScreen =  a * b;
         displayScreen.textContent=displayedOnScreen;
         endOfEquation=true;
         equationOne=true;
+        clearAfterEquals=true;
         } 
     }
 }
 
 function clickedNumberButtonFunc () {
+    clearAfterEquals=false;
     if (endOfEquation===true) {
         displayedOnScreen = [];
         plusEquation=false;
